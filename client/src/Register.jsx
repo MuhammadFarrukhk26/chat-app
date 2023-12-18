@@ -8,7 +8,8 @@ export default function Register() {
   const { setUsername:setLoggedInUsername, setId } = useContext(UserContext);
   async function register(e) {
     e.preventDefault();
-    const { date } = await axios.post("/register", { username, password });
+    const { data } = await axios.post("/register", { username, password });
+    console.log(data)
     setLoggedInUsername(username);
     setId(data.id);
   }
